@@ -1,0 +1,62 @@
+app:
+  name: "FastTrackJustice"
+  version: "1.0.0"
+  description: "A legal intelligence platform for analyzing precedent influence and legal principles"
+  debug: false
+  host: "0.0.0.0"
+  port: 8501
+
+data:
+  base_path: "data"
+  cases_path: "data/cases"
+  principles_path: "data/principles"
+  memory_path: "data/memory"
+  logs_path: "logs"
+  cache_path: "cache"
+  temp_path: "temp"
+
+database:
+  type: "sqlite"  # Options: sqlite, postgresql, mongodb
+  path: "data/database.sqlite"
+  host: "localhost"
+  port: 5432
+  name: "fasttrackjustice"
+  user: ""
+  password: ""
+
+api:
+  enabled: true
+  host: "0.0.0.0"
+  port: 8000
+  debug: false
+  cors_origins: ["*"]
+  rate_limit: 100  # requests per minute
+
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/app.log"
+  max_size: 10485760  # 10MB
+  backup_count: 5
+
+security:
+  secret_key: ""  # Set this in production
+  token_expiry: 3600  # 1 hour
+  password_hash_algorithm: "bcrypt"
+  session_timeout: 86400  # 24 hours
+
+features:
+  scroll_memory: true
+  judicial_mode: true
+  principle_evolution: true
+  case_analysis: true
+  graph_visualization: true
+  export_options: true
+  bulk_import: true
+
+ui:
+  theme: "light"  # Options: light, dark
+  language: "en"
+  timezone: "UTC"
+  date_format: "%Y-%m-%d"
+  time_format: "%H:%M:%S" 
